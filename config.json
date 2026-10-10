@@ -1,0 +1,23 @@
+{
+  "title": "Morning Memo",
+  "author": "Ziad",
+  "description": "A private five-minute morning briefing, generated daily.",
+  "site_url": "https://OWNER.github.io/REPO",
+  "feed_path": "m-ER4yYdQyfNBC21IJ",
+  "keep_episodes": 30,
+  "tts": {
+    "model": "qwen/qwen-audio-3.0-tts-plus",
+    "voice": "longanlingxin",
+    "max_chunk_chars": 3500
+  },
+  "samples": [
+    {"label": "Qwen Audio 3.0 Plus (voice A)", "model": "qwen/qwen-audio-3.0-tts-plus", "voice": "longanlingxin"},
+    {"label": "Qwen Audio 3.0 Plus (voice B)", "model": "qwen/qwen-audio-3.0-tts-plus", "voice": "longanlufeng"},
+    {"label": "Gemini 3.8 Flash TTS (Charon)", "model": "google/gemini-3.8-flash-tts", "voice": "Charon"},
+    {"label": "Gemini 3.8 Flash TTS (Aoede)", "model": "google/gemini-3.8-flash-tts", "voice": "Aoede"},
+    {"label": "MAI-Voice-2.1 (Jasper)", "model": "microsoft/mai-voice-2.1", "voice": "en-US-Jasper:MAI-Voice-2.1"},
+    {"label": "MAI-Voice-2.1 (Harper)", "model": "microsoft/mai-voice-2.1", "voice": "en-US-Harper:MAI-Voice-2.1"},
+    {"label": "Eleven v4 (George)", "model": "elevenlabs/eleven-v4", "voice": "george"},
+    {"label": "Eleven v4 (Sarah)", "model": "elevenlabs/eleven-v4", "voice": "sarah"}
+  ]
+}

@@ -1,0 +1,53 @@
+name: render
+
+on:
+  push:
+    branches: [main]
+    paths: ["scripts/**", "config.json", "tools/**"]
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "episodes or samples"
+        default: episodes
+        type: choice
+        options: [episodes, samples]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: render
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Render
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python3 tools/memo.py ${{ inputs.mode || 'episodes' }}
+
+      - name: Commit audio and feed
+        run: |
+          git config user.name "memo-bot"
+          git config user.email "memo-bot@users.noreply.github.com"
+          git add site
+          git diff --cached --quiet || git commit -m "render $(date -u +%F)"
+          git push
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - uses: actions/deploy-pages@v4
