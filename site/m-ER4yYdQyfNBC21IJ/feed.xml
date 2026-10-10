@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
     <title>Morning Memo</title>
-    <link>https://OWNER.github.io/REPO/m-ER4yYdQyfNBC21IJ/</link>
+    <link>https://ppgoesbig.github.io/morning-memo/m-ER4yYdQyfNBC21IJ/</link>
     <description>A private five-minute morning briefing, generated daily.</description>
     <language>en-us</language>
     <itunes:author>Ziad</itunes:author>
-    <itunes:image href="https://OWNER.github.io/REPO/m-ER4yYdQyfNBC21IJ/cover.png"/>
+    <itunes:image href="https://ppgoesbig.github.io/morning-memo/m-ER4yYdQyfNBC21IJ/cover.png"/>
     <itunes:explicit>false</itunes:explicit>
     <itunes:block>Yes</itunes:block>
     <itunes:category text="News"/>
