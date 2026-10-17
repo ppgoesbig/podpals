@@ -18,7 +18,7 @@ A private podcast that writes and voices a five-minute briefing every morning.
 ## One-time setup
 1. Repo Settings > Secrets and variables > Actions > New secret: `llave` (your OpenRouter key).
 2. Repo Settings > Pages > Source: **GitHub Actions**.
-3. Actions > render > Run workflow > mode `samples`. Open `<site_url>/<feed_path>/samples/` on your phone and pick a voice.
+3. Any push renders the voice sampler (only new voices cost money). Open `<site_url>/<feed_path>/samples/` on your phone and pick a voice.
 4. Put the winning `model` and `voice` into `config.json` under `tts`.
 5. In Apple Podcasts: Library > ... > Follow a Show by URL > paste `<site_url>/<feed_path>/feed.xml`.
    (Overcast: + > Add URL.)

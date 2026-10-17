@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Morning Memo builder.
 
+  python tools/memo.py all        # samples (only missing ones) + episodes
   python tools/memo.py episodes   # render any scripts/*.md without an MP3, rebuild feed
   python tools/memo.py samples    # render the voice sampler into site/samples
   python tools/memo.py feed       # rebuild feed + index only
@@ -259,6 +260,12 @@ h2{{font-size:17px;margin:0}}.m{{color:var(--mute);font-size:13px;margin:2px 0 1
     build_feed()
 
 
+def cmd_all():
+    """Samples are cached per file, so this only spends money on new ones."""
+    cmd_samples()
+    cmd_episodes()
+
+
 if __name__ == "__main__":
-    cmd = sys.argv[1] if len(sys.argv) > 1 else "episodes"
-    {"episodes": cmd_episodes, "samples": cmd_samples, "feed": build_feed}[cmd]()
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "all"
+    {"all": cmd_all, "episodes": cmd_episodes, "samples": cmd_samples, "feed": build_feed}[cmd]()
