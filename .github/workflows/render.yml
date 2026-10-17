@@ -35,7 +35,7 @@ jobs:
 
       - name: Render
         env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.llave }}
         run: python3 tools/memo.py ${{ inputs.mode || 'episodes' }}
 
       - name: Commit audio and feed

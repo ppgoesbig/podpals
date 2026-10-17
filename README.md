@@ -16,7 +16,7 @@ A private podcast that writes and voices a five-minute briefing every morning.
 - `.github/workflows/render.yml` - runs on every pushed script, or manually
 
 ## One-time setup
-1. Repo Settings > Secrets and variables > Actions > New secret: `OPENROUTER_API_KEY`.
+1. Repo Settings > Secrets and variables > Actions > New secret: `llave` (your OpenRouter key).
 2. Repo Settings > Pages > Source: **GitHub Actions**.
 3. Actions > render > Run workflow > mode `samples`. Open `<site_url>/<feed_path>/samples/` on your phone and pick a voice.
 4. Put the winning `model` and `voice` into `config.json` under `tts`.
