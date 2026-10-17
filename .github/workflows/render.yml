@@ -24,6 +24,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check key
+        env:
+          K: ${{ secrets.llave }}
+          V: ${{ vars.llave }}
+        run: |
+          if [ -n "$K" ]; then echo "::notice::secret llave present (${#K} chars)"; exit 0; fi
+          if [ -n "$V" ]; then echo "::error::llave is saved as a Variable, not a Secret"; exit 1; fi
+          echo "::error::no repository secret named llave was found"; exit 1
+
       - name: Install ffmpeg
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
 

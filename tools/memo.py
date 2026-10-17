@@ -33,6 +33,11 @@ SAMPLES = PUB / "samples"
 API = "https://openrouter.ai/api/v1/audio/speech"
 
 
+def annotate(msg: str):
+    """Surface a message as a GitHub Actions annotation (readable without raw logs)."""
+    print(f"::warning::{msg}" if os.environ.get("GITHUB_ACTIONS") else msg, flush=True)
+
+
 # ---------- text ----------
 
 def speakable(md: str) -> str:
@@ -235,7 +240,7 @@ def cmd_samples():
                 render(sample_text, s["model"], s["voice"], out, CFG["tts"]["max_chunk_chars"])
             rows.append((s, name, None))
         except Exception as e:  # keep going so one bad model doesn't sink the page
-            print(f"  failed: {e}")
+            annotate(f"sample {s['label']} failed: {str(e)[:300]}")
             rows.append((s, None, str(e)[:200]))
     cards = []
     for s, name, err in rows:
